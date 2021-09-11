@@ -1,0 +1,9 @@
+---
+- hosts: app
+  gather_facts: yes
+
+- include: ubuntu.yaml
+  when: ansible_pkg_mgr == 'apt'
+
+- include: centos.yaml
+  when: ansible_pkg_mgr == 'yum'
